@@ -1,0 +1,794 @@
+:root {
+  --wds-red: #c5050c;
+  --wds-red-dark: #9b0000;
+  --wds-ink: #1f1f1f;
+  --wds-muted: #646569;
+  --wds-line: #dadfe4;
+  --wds-paper: #ffffff;
+  --wds-soft: #f6f6f3;
+  --wds-blue-gray: #e9eef3;
+  --wds-gold: #f2c84b;
+  --wds-black: #111111;
+}
+
+@font-face {
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: 300 900;
+  src: url("https://uwebc.wisc.edu/wp-content/themes/uw-theme/dist/fonts/uw-rh/redhat-display-latin.v14.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 300 700;
+  src: url("https://uwebc.wisc.edu/wp-content/themes/uw-theme/dist/fonts/uw-rh/redhat-text-latin.v13.woff2")
+    format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--wds-paper);
+  color: var(--wds-ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--wds-paper);
+  color: var(--wds-ink);
+  font-family: "Red Hat Text", Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+a {
+  color: inherit;
+}
+
+.wds-page {
+  min-height: 100vh;
+  background: var(--wds-paper);
+}
+
+.wds-container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.wds-site-header {
+  background: var(--wds-paper);
+  border-bottom: 1px solid var(--wds-line);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.wds-uw-bar {
+  background: var(--wds-black);
+  color: var(--wds-paper);
+  font-size: 0.875rem;
+}
+
+.wds-uw-bar a {
+  display: block;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 0.48rem 0;
+  text-decoration: none;
+}
+
+.wds-brand-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem 1rem;
+  align-items: center;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.wds-crest {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  background: var(--wds-red);
+  color: var(--wds-paper);
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.wds-site-title {
+  color: var(--wds-red);
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.wds-brand-row nav {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 0.4rem 1rem;
+  flex-wrap: wrap;
+  color: var(--wds-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.wds-brand-row nav a {
+  border-bottom: 3px solid transparent;
+  padding: 0.2rem 0;
+  text-decoration: none;
+}
+
+.wds-brand-row nav a:hover,
+.wds-brand-row nav a:focus-visible {
+  border-bottom-color: var(--wds-red);
+  color: var(--wds-red);
+  outline: none;
+}
+
+.wds-hero {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  background: var(--wds-black);
+}
+
+.wds-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.56;
+}
+
+.wds-hero::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.34);
+}
+
+.wds-hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 7rem 0 5rem;
+  color: var(--wds-paper);
+}
+
+.wds-eyebrow {
+  margin: 0 0 0.7rem;
+  color: var(--wds-red);
+  font-size: 0.84rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.wds-hero .wds-eyebrow {
+  color: var(--wds-gold);
+}
+
+.wds-hero h1,
+.wds-intro h2,
+.wds-section-heading h2,
+.wds-footer h2 {
+  margin: 0;
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+.wds-hero h1 {
+  max-width: 760px;
+  font-size: 3rem;
+  line-height: 1.02;
+}
+
+.wds-hero p:last-child {
+  max-width: 650px;
+  margin: 1.2rem 0 0;
+  font-size: 1.16rem;
+  line-height: 1.7;
+}
+
+.wds-band {
+  padding: 4.25rem 0;
+  background: var(--wds-paper);
+}
+
+.wds-band--intro {
+  padding: 2.4rem 0 4rem;
+}
+
+.wds-band--share {
+  background: var(--wds-blue-gray);
+}
+
+.wds-breadcrumbs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  color: var(--wds-muted);
+  font-size: 0.92rem;
+}
+
+.wds-breadcrumbs a {
+  color: var(--wds-red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wds-breadcrumbs a:hover,
+.wds-breadcrumbs a:focus-visible {
+  text-decoration: underline;
+}
+
+.wds-intro {
+  display: grid;
+  gap: 2rem;
+}
+
+.wds-intro__copy {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 900px;
+}
+
+.wds-intro h2,
+.wds-section-heading h2 {
+  color: var(--wds-ink);
+  font-size: 2.25rem;
+  line-height: 1.12;
+}
+
+.wds-intro p {
+  margin: 0;
+  max-width: 850px;
+  color: #363636;
+  font-size: 1.05rem;
+  line-height: 1.78;
+}
+
+.wds-stat-strip {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.wds-stat-strip span {
+  border-left: 5px solid var(--wds-red);
+  background: var(--wds-soft);
+  padding: 0.75rem 1rem;
+  color: var(--wds-ink);
+  font-weight: 800;
+}
+
+.wds-section-heading {
+  margin-bottom: 1.75rem;
+}
+
+.wds-selection-panel {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--wds-line);
+  border-left: 6px solid var(--wds-red);
+  border-radius: 8px;
+  background: var(--wds-soft);
+  padding: 1rem;
+}
+
+.wds-selection-panel h3 {
+  margin: 0;
+  color: var(--wds-ink);
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 850;
+}
+
+.wds-selection-panel p {
+  margin: 0.25rem 0 0;
+  color: var(--wds-muted);
+  line-height: 1.5;
+}
+
+.wds-selected-list {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.wds-selected-photo {
+  display: inline-flex;
+  max-width: 260px;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid var(--wds-line);
+  border-radius: 6px;
+  background: var(--wds-paper);
+  color: var(--wds-ink);
+  padding: 0.45rem 0.6rem;
+  cursor: pointer;
+  font-weight: 800;
+  text-align: left;
+}
+
+.wds-selected-photo img {
+  width: 48px;
+  height: 36px;
+  object-fit: cover;
+}
+
+.wds-selected-photo span {
+  min-width: 0;
+}
+
+.wds-selection-empty {
+  color: var(--wds-muted);
+}
+
+.wds-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.wds-photo-card {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--wds-line);
+  border-radius: 8px;
+  background: var(--wds-paper);
+  color: var(--wds-ink);
+  text-align: left;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.wds-photo-card:hover,
+.wds-photo-card:focus-within,
+.wds-photo-card.is-selected {
+  border-color: var(--wds-red);
+  box-shadow: 0 12px 28px rgba(31, 31, 31, 0.16);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.wds-photo-card__preview {
+  display: grid;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.wds-photo-card__image-wrap {
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--wds-soft);
+}
+
+.wds-photo-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease;
+}
+
+.wds-photo-card:hover img,
+.wds-photo-card:focus-within img {
+  transform: scale(1.035);
+}
+
+.wds-photo-card__meta {
+  display: block;
+  padding: 0.85rem 0.95rem 1rem;
+}
+
+.wds-photo-card__meta span {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.wds-photo-card strong {
+  min-width: 0;
+  color: var(--wds-ink);
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 1.03rem;
+  line-height: 1.2;
+}
+
+.wds-photo-card small {
+  color: var(--wds-muted);
+  font-weight: 800;
+}
+
+.wds-select-button {
+  min-height: 40px;
+  border: 0;
+  border-top: 1px solid var(--wds-line);
+  background: var(--wds-paper);
+  color: var(--wds-red);
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.wds-photo-card.is-selected .wds-select-button {
+  background: var(--wds-red);
+  color: var(--wds-paper);
+}
+
+.wds-select-button:disabled {
+  color: var(--wds-muted);
+  cursor: not-allowed;
+}
+
+.wds-share-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.wds-share-card {
+  display: grid;
+  gap: 0.9rem;
+  border: 1px solid #cbd2da;
+  border-radius: 8px;
+  background: var(--wds-paper);
+  padding: 1rem;
+}
+
+.wds-share-card--wide {
+  max-width: 920px;
+}
+
+.wds-share-card__top,
+.wds-share-card__actions,
+.wds-share-actions,
+.wds-lightbox__actions {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wds-share-actions {
+  justify-content: flex-start;
+}
+
+.wds-share-guidance {
+  border: 1px solid var(--wds-line);
+  border-left: 5px solid var(--wds-red);
+  border-radius: 6px;
+  background: var(--wds-soft);
+  padding: 0.9rem 1rem;
+}
+
+.wds-share-guidance h3 {
+  margin: 0;
+  color: var(--wds-ink);
+  font-size: 1.05rem;
+}
+
+.wds-share-guidance p {
+  margin: 0.45rem 0 0;
+  color: #333333;
+  line-height: 1.55;
+}
+
+.wds-share-card h3 {
+  margin: 0;
+  color: var(--wds-red);
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 850;
+}
+
+.wds-share-card__top p,
+.wds-share-note {
+  margin: 0.35rem 0 0;
+  color: var(--wds-muted);
+  line-height: 1.5;
+}
+
+.wds-share-card textarea {
+  width: 100%;
+  min-height: 240px;
+  resize: vertical;
+  border: 1px solid var(--wds-line);
+  border-radius: 6px;
+  background: #fbfbfb;
+  color: var(--wds-ink);
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.wds-copy-button,
+.wds-secondary-button,
+.wds-lightbox__actions button,
+.wds-lightbox__actions a,
+.wds-lightbox__close,
+.wds-lightbox__nav {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.wds-copy-button,
+.wds-lightbox__actions button,
+.wds-lightbox__actions a {
+  border: 2px solid var(--wds-red);
+  background: var(--wds-red);
+  color: var(--wds-paper);
+  padding: 0.55rem 0.8rem;
+}
+
+.wds-secondary-button {
+  border: 2px solid var(--wds-ink);
+  background: var(--wds-paper);
+  color: var(--wds-ink);
+  padding: 0.55rem 0.8rem;
+}
+
+.wds-copy-button:hover,
+.wds-copy-button:focus-visible,
+.wds-lightbox__actions button:hover,
+.wds-lightbox__actions button:focus-visible,
+.wds-lightbox__actions a:hover,
+.wds-lightbox__actions a:focus-visible {
+  border-color: var(--wds-red-dark);
+  background: var(--wds-red-dark);
+  outline: none;
+}
+
+.wds-secondary-button:hover,
+.wds-secondary-button:focus-visible {
+  border-color: var(--wds-red);
+  color: var(--wds-red);
+  outline: none;
+}
+
+.wds-footer {
+  background: var(--wds-ink);
+  color: var(--wds-paper);
+  padding: 2.5rem 0;
+}
+
+.wds-footer__inner {
+  display: grid;
+  gap: 2rem;
+}
+
+.wds-footer h2 {
+  color: var(--wds-paper);
+  font-size: 2rem;
+}
+
+.wds-footer p {
+  max-width: 560px;
+  margin: 0.6rem 0 0;
+  color: #ececec;
+  line-height: 1.65;
+}
+
+.wds-footer nav {
+  display: flex;
+  gap: 0.85rem 1.4rem;
+  flex-wrap: wrap;
+}
+
+.wds-footer a {
+  color: var(--wds-paper);
+  font-weight: 800;
+  text-decoration-color: var(--wds-red);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.wds-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.92);
+  padding: 1rem;
+}
+
+.wds-lightbox__figure {
+  display: grid;
+  max-width: min(1120px, 100%);
+  max-height: calc(100vh - 2rem);
+  justify-self: center;
+  margin: 0;
+  color: var(--wds-paper);
+}
+
+.wds-lightbox__figure img {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 180px);
+  object-fit: contain;
+  background: #050505;
+}
+
+.wds-lightbox__figure figcaption {
+  display: grid;
+  gap: 1rem;
+  border-top: 5px solid var(--wds-red);
+  background: var(--wds-paper);
+  color: var(--wds-ink);
+  padding: 1rem;
+}
+
+.wds-lightbox__figure strong {
+  display: block;
+  font-family: "Red Hat Display", Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 850;
+}
+
+.wds-lightbox__figure p {
+  margin: 0.35rem 0 0;
+  color: #333333;
+  line-height: 1.55;
+}
+
+.wds-lightbox__close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  border: 2px solid var(--wds-paper);
+  background: var(--wds-paper);
+  color: var(--wds-ink);
+  cursor: pointer;
+}
+
+.wds-lightbox__nav {
+  width: 68px;
+  border: 2px solid var(--wds-paper);
+  background: transparent;
+  color: var(--wds-paper);
+  cursor: pointer;
+}
+
+.wds-lightbox__close:hover,
+.wds-lightbox__close:focus-visible,
+.wds-lightbox__nav:hover,
+.wds-lightbox__nav:focus-visible {
+  border-color: var(--wds-gold);
+  color: var(--wds-gold);
+  outline: none;
+}
+
+.wds-sr-status {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (min-width: 760px) {
+  .wds-brand-row {
+    grid-template-columns: auto auto 1fr;
+  }
+
+  .wds-brand-row nav {
+    grid-column: auto;
+    justify-content: flex-end;
+  }
+
+  .wds-hero h1 {
+    font-size: 4.25rem;
+  }
+
+  .wds-intro h2,
+  .wds-section-heading h2 {
+    font-size: 2.75rem;
+  }
+
+  .wds-footer__inner {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+@media (max-width: 720px) {
+  .wds-site-header {
+    position: static;
+  }
+
+  .wds-hero {
+    min-height: 390px;
+  }
+
+  .wds-hero__content {
+    padding: 5rem 0 4rem;
+  }
+
+  .wds-band {
+    padding: 3rem 0;
+  }
+
+  .wds-lightbox {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .wds-lightbox__nav {
+    position: fixed;
+    bottom: 1rem;
+    z-index: 1;
+  }
+
+  .wds-lightbox__nav--prev {
+    left: 1rem;
+  }
+
+  .wds-lightbox__nav--next {
+    right: 1rem;
+  }
+
+  .wds-lightbox__figure img {
+    max-height: calc(100vh - 240px);
+  }
+
+  .wds-lightbox__figure figcaption {
+    padding-bottom: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
