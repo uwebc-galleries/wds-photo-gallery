@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wisconsin Digital Symposium Photo Gallery | UWEBC</title>
+    <link
+      rel="stylesheet"
+      href="https://uwebc.wisc.edu/wp-content/themes/uw-theme/dist/main.min.css?ver=1.39.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://uwebc.wisc.edu/wp-content/themes/uw-uwebc-child-theme/dist/css/styles.css?ver=1.0"
+    />
+    <style>
+      :root {
+        --red: #c5050c;
+        --red-dark: #9b0000;
+        --ink: #1f1f1f;
+        --muted: #646569;
+        --line: #dadfe4;
+        --paper: #ffffff;
+        --soft: #f6f6f3;
+        --blue-gray: #e9eef3;
+        --gold: #f2c84b;
+        --black: #111111;
+      }
+      @font-face {
+        font-family: "Red Hat Display";
+        font-style: normal;
+        font-weight: 300 900;
+        src: url("https://uwebc.wisc.edu/wp-content/themes/uw-theme/dist/fonts/uw-rh/redhat-display-latin.v14.woff2")
+          format("woff2");
+      }
+      @font-face {
+        font-family: "Red Hat Text";
+        font-style: normal;
+        font-weight: 300 700;
+        src: url("https://uwebc.wisc.edu/wp-content/themes/uw-theme/dist/fonts/uw-rh/redhat-text-latin.v13.woff2")
+          format("woff2");
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Red Hat Text", Arial, Helvetica, sans-serif;
+      }
+      a {
+        color: inherit;
+      }
+      button,
+      textarea {
+        font: inherit;
+      }
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+      .uwbar {
+        background: var(--black);
+        color: var(--paper);
+        font-size: 0.875rem;
+      }
+      .uwbar a {
+        display: block;
+        padding: 0.48rem 0;
+        text-decoration: none;
+      }
+      .brand {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .brand-row {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.8rem 1rem;
+        align-items: center;
+        padding: 1rem 0;
+      }
+      .crest {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        background: var(--red);
+        color: var(--paper);
+        font-family: "Red Hat Display", Arial, sans-serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .site-title {
+        color: var(--red);
+        font-family: "Red Hat Display", Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1;
+        text-decoration: none;
+      }
+      .brand nav {
+        display: flex;
+        grid-column: 1 / -1;
+        gap: 0.4rem 1rem;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      .brand nav a {
+        border-bottom: 3px solid transparent;
+        padding: 0.2rem 0;
+        text-decoration: none;
+      }
+      .brand nav a:hover,
+      .brand nav a:focus-visible {
+        border-bottom-color: var(--red);
+        color: var(--red);
+        outline: none;
+      }
+      .hero {
+        position: relative;
+        min-height: 430px;
+        overflow: hidden;
+        background: var(--black);
+      }
+      .hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.56;
+      }
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: rgba(0, 0, 0, 0.34);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 7rem 0 5rem;
+        color: var(--paper);
+      }
+      .eyebrow {
+        margin: 0 0 0.7rem;
+        color: var(--red);
+        font-size: 0.84rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+      .hero .eyebrow {
+        color: var(--gold);
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Red Hat Display", Arial, sans-serif;
+        font-weight: 850;
+        letter-spacing: 0;
+      }
+      h1 {
+        max-width: 760px;
+        font-size: 3rem;
+        line-height: 1.02;
+      }
+      .hero p:last-child {
+        max-width: 650px;
+        margin: 1.2rem 0 0;
+        font-size: 1.16rem;
+        line-height: 1.7;
+      }
+      .band {
+        padding: 4.25rem 0;
+        background: var(--paper);
+      }
+      .intro-band {
+        padding: 2.4rem 0 4rem;
+      }
+      .share-band {
+        background: var(--blue-gray);
+      }
+      .breadcrumbs {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .breadcrumbs a {
+        color: var(--red);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .intro-copy {
+        display: grid;
+        gap: 1.25rem;
+        max-width: 900px;
+      }
+      h2 {
+        color: var(--ink);
+        font-size: 2.25rem;
+        line-height: 1.12;
+      }
+      .intro-copy p {
+        margin: 0;
+        max-width: 850px;
+        color: #363636;
+        font-size: 1.05rem;
+        line-height: 1.78;
+      }
+      .stat-strip {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+      .stat-strip span {
+        border-left: 5px solid var(--red);
+        background: var(--soft);
+        padding: 0.75rem 1rem;
+        color: var(--ink);
+        font-weight: 800;
+      }
+      .section-heading {
+        margin-bottom: 1.75rem;
+      }
+      .selection-panel {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--red);
+        border-radius: 8px;
+        background: var(--soft);
+        padding: 1rem;
+      }
+      .selection-panel h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.3rem;
+      }
+      .selection-panel p {
+        margin: 0.25rem 0 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .selected-list {
+        display: flex;
+        gap: 0.65rem;
+        flex-wrap: wrap;
+      }
+      .selected-photo {
+        display: inline-flex;
+        max-width: 260px;
+        align-items: center;
+        gap: 0.65rem;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        color: var(--ink);
+        padding: 0.45rem 0.6rem;
+        cursor: pointer;
+        font-weight: 800;
+        text-align: left;
+      }
+      .selected-photo img {
+        width: 48px;
+        height: 36px;
+        object-fit: cover;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1rem;
+      }
+      .photo-card {
+        display: grid;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        color: var(--ink);
+        text-align: left;
+        transition:
+          border-color 160ms ease,
+          transform 160ms ease,
+          box-shadow 160ms ease;
+      }
+      .photo-card:hover,
+      .photo-card:focus-within,
+      .photo-card.is-selected {
+        border-color: var(--red);
+        box-shadow: 0 12px 28px rgba(31, 31, 31, 0.16);
+        outline: none;
+        transform: translateY(-2px);
+      }
+      .photo-preview {
+        display: grid;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        padding: 0;
+        text-align: left;
+      }
+      .photo-card .image {
+        display: block;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        background: var(--soft);
+      }
+      .photo-card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .photo-card .meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: baseline;
+        padding: 0.85rem 0.95rem 1rem;
+      }
+      .photo-card strong {
+        font-family: "Red Hat Display", Arial, sans-serif;
+        font-size: 1.03rem;
+        line-height: 1.2;
+      }
+      .photo-card small {
+        color: var(--muted);
+        font-weight: 800;
+      }
+      .select-button {
+        min-height: 40px;
+        border: 0;
+        border-top: 1px solid var(--line);
+        background: var(--paper);
+        color: var(--red);
+        cursor: pointer;
+        font-weight: 850;
+      }
+      .photo-card.is-selected .select-button {
+        background: var(--red);
+        color: var(--paper);
+      }
+      .select-button:disabled {
+        color: var(--muted);
+        cursor: not-allowed;
+      }
+      .share-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      .share-card {
+        display: grid;
+        gap: 0.9rem;
+        border: 1px solid #cbd2da;
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 1rem;
+      }
+      .share-card.wide {
+        max-width: 920px;
+      }
+      .share-top,
+      .actions,
+      .share-actions {
+        display: flex;
+        gap: 0.65rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .share-actions {
+        justify-content: flex-start;
+      }
+      .share-guidance {
+        border: 1px solid var(--line);
+        border-left: 5px solid var(--red);
+        border-radius: 6px;
+        background: var(--soft);
+        padding: 0.9rem 1rem;
+      }
+      .share-guidance h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.05rem;
+      }
+      .share-guidance p {
+        margin: 0.45rem 0 0;
+        color: #333333;
+        line-height: 1.55;
+      }
+      .share-card h3 {
+        color: var(--red);
+        font-size: 1.25rem;
+      }
+      .share-top p,
+      .share-note {
+        margin: 0.35rem 0 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      textarea {
+        width: 100%;
+        min-height: 240px;
+        resize: vertical;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fbfbfb;
+        color: var(--ink);
+        padding: 0.85rem;
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+      .button,
+      .copy,
+      .lightbox a,
+      .lightbox button {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+      .copy,
+      .lightbox .actions button,
+      .lightbox .actions a {
+        border: 2px solid var(--red);
+        background: var(--red);
+        color: var(--paper);
+        padding: 0.55rem 0.8rem;
+      }
+      .button {
+        border: 2px solid var(--ink);
+        background: var(--paper);
+        color: var(--ink);
+        padding: 0.55rem 0.8rem;
+      }
+      .footer {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 2.5rem 0;
+      }
+      .footer-inner {
+        display: grid;
+        gap: 2rem;
+      }
+      .footer p {
+        max-width: 560px;
+        margin: 0.6rem 0 0;
+        color: #ececec;
+        line-height: 1.65;
+      }
+      .footer nav {
+        display: flex;
+        gap: 0.85rem 1.4rem;
+        flex-wrap: wrap;
+      }
+      .footer a {
+        color: var(--paper);
+        font-weight: 800;
+        text-decoration-color: var(--red);
+        text-decoration-thickness: 3px;
+        text-underline-offset: 4px;
+      }
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.92);
+        padding: 1rem;
+      }
+      .lightbox.is-open {
+        display: grid;
+      }
+      .figure {
+        display: grid;
+        max-width: min(1120px, 100%);
+        max-height: calc(100vh - 2rem);
+        justify-self: center;
+        margin: 0;
+      }
+      .figure img {
+        display: block;
+        width: 100%;
+        max-height: calc(100vh - 180px);
+        object-fit: contain;
+        background: #050505;
+      }
+      figcaption {
+        display: grid;
+        gap: 1rem;
+        border-top: 5px solid var(--red);
+        background: var(--paper);
+        color: var(--ink);
+        padding: 1rem;
+      }
+      figcaption p {
+        margin: 0.35rem 0 0;
+        color: #333333;
+        line-height: 1.55;
+      }
+      .close {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 44px;
+        border: 2px solid var(--paper);
+        background: var(--paper);
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .nav {
+        width: 68px;
+        border: 2px solid var(--paper);
+        background: transparent;
+        color: var(--paper);
+        cursor: pointer;
+      }
+      @media (min-width: 760px) {
+        .brand-row {
+          grid-template-columns: auto auto 1fr;
+        }
+        .brand nav {
+          grid-column: auto;
+          justify-content: flex-end;
+        }
+        h1 {
+          font-size: 4.25rem;
+        }
+        h2 {
+          font-size: 2.75rem;
+        }
+        .footer-inner {
+          grid-template-columns: 1fr auto;
+          align-items: end;
+        }
+      }
+      @media (max-width: 720px) {
+        .brand {
+          position: static;
+        }
+        .hero {
+          min-height: 390px;
+        }
+        .hero-content {
+          padding: 5rem 0 4rem;
+        }
+        .band {
+          padding: 3rem 0;
+        }
+        .lightbox {
+          grid-template-columns: 1fr;
+        }
+        .nav {
+          position: fixed;
+          bottom: 1rem;
+        }
+        .prev {
+          left: 1rem;
+        }
+        .next {
+          right: 1rem;
+        }
+        .figure img {
+          max-height: calc(100vh - 240px);
+        }
+        figcaption {
+          padding-bottom: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="uwbar">
+      <div class="container">
+        <a href="https://www.wisc.edu/">University of Wisconsin-Madison</a>
+      </div>
+    </div>
+    <header class="brand">
+      <div class="container brand-row">
+        <a class="crest" href="https://uwebc.wisc.edu/" aria-label="UWEBC home">W</a>
+        <a class="site-title" href="https://uwebc.wisc.edu/">UWEBC</a>
+        <nav aria-label="Primary navigation">
+          <a href="https://uwebc.wisc.edu/events/">Events</a>
+          <a href="https://uwebc.wisc.edu/wisconsin-digital-symposium/">Wisconsin Digital Symposium</a>
+          <a href="https://uwebc.wisc.edu/membership-benefits/">Membership</a>
+          <a href="https://uwebc.wisc.edu/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <img src="photos/2026-wds/full/wds-2026-10.jpg" alt="" />
+        <div class="container hero-content">
+          <p class="eyebrow">Wisconsin Digital Symposium</p>
+          <h1>Photo Gallery</h1>
+          <p>Still photography from UWEBC's digital leadership gathering at Lambeau Field in Green Bay.</p>
+        </div>
+      </section>
+
+      <section class="band intro-band">
+        <div class="container">
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://uwebc.wisc.edu/">Home</a><span>/</span>
+            <a href="https://uwebc.wisc.edu/wisconsin-digital-symposium/">Wisconsin Digital Symposium</a><span>/</span>
+            <span>Photos</span>
+          </nav>
+          <div class="intro-copy">
+            <h2>Share the moments that carried the day.</h2>
+            <p>On June 1, 2026, UWEBC brought technology, data, and digital leaders together at Lambeau Field for practical conversations about AI, analytics, platforms, automation, digital strategy, and manufacturing innovation.</p>
+          </div>
+          <div class="stat-strip">
+            <span id="photo-count">15 photos</span>
+            <span>June 1, 2026</span>
+            <span>Lambeau Field</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Gallery</p>
+            <h2>Digital Symposium Photography</h2>
+          </div>
+          <div class="selection-panel" id="selection-panel">
+            <div>
+              <h3>Selected for Sharing</h3>
+              <p><span id="selected-count">0</span> of 3 photos selected</p>
+            </div>
+            <div class="selected-list" id="selected-list"></div>
+            <p id="selection-empty">Choose photos from the gallery to build a share set.</p>
+          </div>
+          <div class="gallery" id="gallery" aria-label="Photo thumbnails"></div>
+        </div>
+      </section>
+
+      <section class="band share-band">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Share</p>
+            <h2>Suggested Text and Hashtags</h2>
+          </div>
+          <div class="share-grid" id="share-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <h2>UWEBC</h2>
+          <p>Part of UW-Madison, connecting leaders around business best practices and emerging technologies.</p>
+        </div>
+        <nav aria-label="Footer links">
+          <a href="https://uwebc.wisc.edu/wisconsin-digital-symposium/">Wisconsin Digital Symposium</a>
+          <a href="https://uwebc.wisc.edu/event-calendar/">Event Calendar</a>
+          <a href="mailto:info@uwebc.wisc.edu">info@uwebc.wisc.edu</a>
+        </nav>
+      </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="close" id="close" aria-label="Close photo">X</button>
+      <button class="nav prev" id="prev" aria-label="Previous photo">Prev</button>
+      <figure class="figure">
+        <img id="lightbox-img" alt="" />
+        <figcaption>
+          <div>
+            <strong id="lightbox-title"></strong>
+            <p id="lightbox-caption"></p>
+          </div>
+          <div class="actions">
+            <button id="copy-photo">Copy link</button>
+            <button id="share-photo">Share</button>
+            <a id="open-image" href="#">Open image</a>
+          </div>
+        </figcaption>
+      </figure>
+      <button class="nav next" id="next" aria-label="Next photo">Next</button>
+    </div>
+
+    <script>
+      const eventConfig = {
+        eventName: "Wisconsin Digital Symposium",
+        organizerName: "UWEBC",
+        dateLabel: "June 1, 2026",
+        venueName: "Lambeau Field",
+        locationName: "Green Bay",
+        galleryUrl: "https://uwebc.wisc.edu/wisconsin-digital-symposium/photos/",
+        shareLead: "Sharing a few moments from the 2026 Wisconsin Digital Symposium at Lambeau Field.",
+        topics: ["AI", "analytics", "platforms", "automation", "digital strategy", "manufacturing innovation"],
+        hashtags: ["WisconsinDigitalSymposium", "UWEBC", "DigitalTransformation", "AI"]
+      };
+      const galleryUrl = eventConfig.galleryUrl;
+      const maxSelectedPhotos = 3;
+      const photos = [
+        ["wds-2026-arrival-networking", "Arrival Networking", "Attendees connected during arrival and breakfast networking at the 2026 Wisconsin Digital Symposium.", "2026", "photos/2026-wds/thumb/wds-2026-01.jpg", "photos/2026-wds/full/wds-2026-01.jpg"],
+        ["wds-2026-registration-conversations", "Registration Conversations", "Guests checked in and caught up with peers before the formal program began.", "2026", "photos/2026-wds/thumb/wds-2026-02.jpg", "photos/2026-wds/full/wds-2026-02.jpg"],
+        ["wds-2026-peer-conversation", "Peer Conversation", "Digital leaders compared priorities and practical lessons between sessions.", "2026", "photos/2026-wds/thumb/wds-2026-03.jpg", "photos/2026-wds/full/wds-2026-03.jpg"],
+        ["wds-2026-lambeau-networking", "Lambeau Networking", "Attendees continued conversations in the Lambeau Field event space.", "2026", "photos/2026-wds/thumb/wds-2026-04.jpg", "photos/2026-wds/full/wds-2026-04.jpg"],
+        ["wds-2026-event-giveaways", "Event Giveaways", "Branded event materials and giveaways welcomed Symposium attendees.", "2026", "photos/2026-wds/thumb/wds-2026-05.jpg", "photos/2026-wds/full/wds-2026-05.jpg"],
+        ["wds-2026-roundtable-discussion", "Roundtable Discussion", "Small-group conversation created space for questions, context, and connection.", "2026", "photos/2026-wds/thumb/wds-2026-06.jpg", "photos/2026-wds/full/wds-2026-06.jpg"],
+        ["wds-2026-table-conversation", "Table Conversation", "Peers used the Symposium setting to exchange ideas in a more focused format.", "2026", "photos/2026-wds/thumb/wds-2026-07.jpg", "photos/2026-wds/full/wds-2026-07.jpg"],
+        ["wds-2026-sponsor-exchange", "Sponsor Exchange", "Attendees and partners discussed opportunities around digital capability building.", "2026", "photos/2026-wds/thumb/wds-2026-08.jpg", "photos/2026-wds/full/wds-2026-08.jpg"],
+        ["wds-2026-partner-conversation", "Partner Conversation", "A partner conversation continued during the Symposium networking portions of the day.", "2026", "photos/2026-wds/thumb/wds-2026-09.jpg", "photos/2026-wds/full/wds-2026-09.jpg"],
+        ["wds-2026-atrium-networking", "Atrium Networking", "The Lambeau Field atrium gave attendees room to meet partners and reconnect with peers.", "2026", "photos/2026-wds/thumb/wds-2026-10.jpg", "photos/2026-wds/full/wds-2026-10.jpg"],
+        ["wds-2026-sponsor-table", "Sponsor Table", "Innovation partners welcomed attendees and shared resources throughout the event.", "2026", "photos/2026-wds/thumb/wds-2026-11.jpg", "photos/2026-wds/full/wds-2026-11.jpg"],
+        ["wds-2026-partner-connections", "Partner Connections", "Members, partners, and guests compared digital transformation priorities between sessions.", "2026", "photos/2026-wds/thumb/wds-2026-12.jpg", "photos/2026-wds/full/wds-2026-12.jpg"],
+        ["wds-2026-peer-networking", "Peer Networking", "Attendees built relationships across technology, data, operations, and executive leadership.", "2026", "photos/2026-wds/thumb/wds-2026-13.jpg", "photos/2026-wds/full/wds-2026-13.jpg"],
+        ["wds-2026-hallway-conversation", "Hallway Conversation", "Informal conversations gave attendees a chance to keep the program discussion moving.", "2026", "photos/2026-wds/thumb/wds-2026-14.jpg", "photos/2026-wds/full/wds-2026-14.jpg"],
+        ["wds-2026-small-group-exchange", "Small Group Exchange", "Small-group exchanges helped participants connect lessons from the event to their own work.", "2026", "photos/2026-wds/thumb/wds-2026-15.jpg", "photos/2026-wds/full/wds-2026-15.jpg"]
+      ];
+      const shareChannels = [
+        ["native", "Device Share"],
+        ["linkedin", "Copy text + open LinkedIn"],
+        ["facebook", "Copy text + open Facebook"],
+        ["instagram", "Copy text + open Instagram"],
+        ["email", "Open email"]
+      ];
+      let selected = 0;
+      let selectedIds = [];
+      const gallery = document.querySelector("#gallery");
+      const selectedCount = document.querySelector("#selected-count");
+      const selectedList = document.querySelector("#selected-list");
+      const selectionEmpty = document.querySelector("#selection-empty");
+      const lightbox = document.querySelector("#lightbox");
+      const lightboxImg = document.querySelector("#lightbox-img");
+      const lightboxTitle = document.querySelector("#lightbox-title");
+      const lightboxCaption = document.querySelector("#lightbox-caption");
+      const openImage = document.querySelector("#open-image");
+
+      function photoUrl(photo) {
+        return `${galleryUrl}#${photo[0]}`;
+      }
+      function photoFilename(photo) {
+        const slug = `${eventConfig.eventName}-${photo[1]}`
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "");
+        const extension = photo[5].includes(".png") ? "png" : "jpg";
+        return `${slug}.${extension}`;
+      }
+      function selectedPhotos() {
+        return selectedIds.map((id) => photos.find((photo) => photo[0] === id)).filter(Boolean);
+      }
+      function shareText() {
+        const selected = selectedPhotos();
+        const topicText = eventConfig.topics.length ? ` Conversations centered on ${eventConfig.topics.join(", ")}.` : "";
+        const photoText = selected.length
+          ? `\n\nSelected photos:\n${selected.map((photo) => `${photo[1]}: ${photoUrl(photo)}`).join("\n")}`
+          : `\n\nPhoto gallery: ${galleryUrl}`;
+        const hashtags = eventConfig.hashtags.map((tag) => `#${tag.replace(/^#/, "")}`).join(" ");
+        return `${eventConfig.shareLead}\n\n${eventConfig.eventName} | ${eventConfig.organizerName} | ${eventConfig.dateLabel} | ${eventConfig.venueName}, ${eventConfig.locationName}.${topicText}${photoText}\n\n${hashtags}`;
+      }
+      function openPhoto(index) {
+        selected = index;
+        const photo = photos[index];
+        lightboxImg.src = photo[5];
+        lightboxImg.alt = photo[1];
+        lightboxTitle.textContent = photo[1];
+        lightboxCaption.textContent = photo[2];
+        openImage.href = photo[5];
+        lightbox.classList.add("is-open");
+        history.replaceState(null, "", `#${photo[0]}`);
+      }
+      function closePhoto() {
+        lightbox.classList.remove("is-open");
+        history.replaceState(null, "", location.pathname);
+      }
+      function move(delta) {
+        openPhoto((selected + delta + photos.length) % photos.length);
+      }
+      async function copyText(text, button) {
+        await navigator.clipboard.writeText(text);
+        const old = button.textContent;
+        button.textContent = "Copied";
+        setTimeout(() => (button.textContent = old), 1400);
+      }
+      function toggleSelection(photoId) {
+        if (selectedIds.includes(photoId)) {
+          selectedIds = selectedIds.filter((id) => id !== photoId);
+        } else if (selectedIds.length < maxSelectedPhotos) {
+          selectedIds = [...selectedIds, photoId];
+        }
+        renderSelection();
+        renderShare();
+      }
+      async function buildShareFiles() {
+        const files = await Promise.all(selectedPhotos().map(async (photo) => {
+          const response = await fetch(photo[5]);
+          const blob = await response.blob();
+          const extension = blob.type.includes("png") ? "png" : "jpg";
+          return new File([blob], `${photo[0]}.${extension}`, { type: blob.type || "image/jpeg" });
+        }));
+        return files;
+      }
+      async function nativeShare() {
+        const text = shareText();
+        const data = { title: eventConfig.eventName, text, url: galleryUrl };
+        try {
+          if (navigator.share) {
+            if (selectedIds.length && navigator.canShare) {
+              const files = await buildShareFiles();
+              if (navigator.canShare({ files })) {
+                await navigator.share({ ...data, files });
+                return;
+              }
+            }
+            await navigator.share(data);
+            return;
+          }
+        } catch {}
+        await navigator.clipboard.writeText(text);
+      }
+      function openChannel(channel) {
+        const text = shareText();
+        const encodedUrl = encodeURIComponent(galleryUrl);
+        const encodedText = encodeURIComponent(text);
+        if (channel === "native") {
+          nativeShare();
+          return;
+        }
+        if (channel === "linkedin") {
+          navigator.clipboard.writeText(text);
+          window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, "_blank", "noopener,noreferrer");
+          return;
+        }
+        if (channel === "facebook") {
+          navigator.clipboard.writeText(text);
+          window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, "_blank", "noopener,noreferrer");
+          return;
+        }
+        if (channel === "instagram") {
+          navigator.clipboard.writeText(text);
+          window.open("https://www.instagram.com/", "_blank", "noopener,noreferrer");
+          return;
+        }
+        location.href = `mailto:?subject=${encodeURIComponent(`${eventConfig.eventName} photos`)}&body=${encodedText}`;
+      }
+      function downloadSelectedPhotos() {
+        const selected = selectedPhotos();
+        if (!selected.length) {
+          alert(`Select up to ${maxSelectedPhotos} photos before downloading.`);
+          return;
+        }
+        selected.forEach((photo, index) => {
+          setTimeout(() => {
+            const link = document.createElement("a");
+            link.href = photo[5];
+            link.download = photoFilename(photo);
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            document.body.append(link);
+            link.click();
+            link.remove();
+          }, index * 180);
+        });
+      }
+      function renderSelection() {
+        selectedCount.textContent = selectedIds.length;
+        const selected = selectedPhotos();
+        selectionEmpty.style.display = selected.length ? "none" : "block";
+        selectedList.innerHTML = selected.map((photo) => `
+          <button class="selected-photo" type="button" data-select="${photo[0]}">
+            <img src="${photo[4]}" alt="">
+            <span>${photo[1]}</span>
+          </button>
+        `).join("");
+        document.querySelectorAll(".photo-card").forEach((card) => {
+          const selected = selectedIds.includes(card.dataset.id);
+          const button = card.querySelector(".select-button");
+          card.classList.toggle("is-selected", selected);
+          button.textContent = selected ? "Selected" : "Select";
+          button.disabled = !selected && selectedIds.length >= maxSelectedPhotos;
+        });
+      }
+      function renderShare() {
+        const selected = selectedPhotos();
+        const text = shareText();
+        const hashtags = eventConfig.hashtags.map((tag) => `#${tag.replace(/^#/, "")}`).join(" ");
+        document.querySelector("#share-grid").innerHTML = `
+          <article class="share-card wide">
+            <div class="share-top">
+              <div>
+                <h3>${selected.length ? "Selected Photo Share" : "Gallery Share"}</h3>
+                <p>${hashtags}</p>
+              </div>
+              <button class="copy" type="button" data-copy-share="true">Copy text</button>
+            </div>
+            <textarea readonly>${text}</textarea>
+            <div class="share-actions">
+              <button class="button" type="button" data-download-selected="true">Download selected photos</button>
+              ${shareChannels.map(([id, label]) => `<button class="${id === "native" ? "copy" : "button"}" type="button" data-channel="${id}">${label}</button>`).join("")}
+            </div>
+            <div class="share-guidance">
+              <h3>Sharing on LinkedIn</h3>
+              <p>LinkedIn does not accept pre-attached photos through public share links. Use this tool to copy the suggested text, download the selected photos, open LinkedIn, and attach the photos in the LinkedIn composer.</p>
+            </div>
+            <p class="share-note">Device Share may include selected image files when the browser and social app support file sharing. If downloads open image tabs, use Save Image from those tabs.</p>
+          </article>
+        `;
+      }
+
+      gallery.innerHTML = photos.map((photo, index) => `
+        <article class="photo-card" data-id="${photo[0]}">
+          <button class="photo-preview" type="button" data-index="${index}">
+            <span class="image"><img src="${photo[4]}" alt="${photo[1]}" loading="lazy"></span>
+            <span class="meta"><strong>${photo[1]}</strong><small>${photo[3]}</small></span>
+          </button>
+          <button class="select-button" type="button" data-select="${photo[0]}">Select</button>
+        </article>
+      `).join("");
+      gallery.addEventListener("click", (event) => {
+        const preview = event.target.closest("button[data-index]");
+        const select = event.target.closest("button[data-select]");
+        if (preview) openPhoto(Number(preview.dataset.index));
+        if (select) toggleSelection(select.dataset.select);
+      });
+
+      selectedList.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-select]");
+        if (button) toggleSelection(button.dataset.select);
+      });
+      document.querySelector("#share-grid").addEventListener("click", (event) => {
+        const copyButton = event.target.closest("button[data-copy-share]");
+        const channelButton = event.target.closest("button[data-channel]");
+        const downloadButton = event.target.closest("button[data-download-selected]");
+        if (copyButton) copyText(shareText(), copyButton);
+        if (channelButton) openChannel(channelButton.dataset.channel);
+        if (downloadButton) downloadSelectedPhotos();
+      });
+
+      document.querySelector("#close").addEventListener("click", closePhoto);
+      document.querySelector("#prev").addEventListener("click", () => move(-1));
+      document.querySelector("#next").addEventListener("click", () => move(1));
+      document.querySelector("#copy-photo").addEventListener("click", (event) => copyText(photoUrl(photos[selected]), event.target));
+      document.querySelector("#share-photo").addEventListener("click", async () => {
+        const photo = photos[selected];
+        const url = photoUrl(photo);
+        if (navigator.share) {
+          await navigator.share({ title: photo[1], text: photo[2], url });
+        } else {
+          await navigator.clipboard.writeText(`${photo[1]}\n${photo[2]}\n${url}`);
+        }
+      });
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closePhoto();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox.classList.contains("is-open")) return;
+        if (event.key === "Escape") closePhoto();
+        if (event.key === "ArrowLeft") move(-1);
+        if (event.key === "ArrowRight") move(1);
+      });
+      renderSelection();
+      renderShare();
+      const initialIndex = photos.findIndex((photo) => `#${photo[0]}` === location.hash);
+      if (initialIndex >= 0) openPhoto(initialIndex);
+    </script>
+  </body>
+</html>
